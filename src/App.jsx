@@ -1,9 +1,7 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { AppwriteException } from "appwrite";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import { client } from "./lib/appwrite";
-import { AppwriteException } from "appwrite";
-import AppwriteSvg from "../public/appwrite.svg";
-import ReactSvg from "../public/react.svg";
 
 function App() {
   const [detailHeight, setDetailHeight] = useState(55);
@@ -76,10 +74,10 @@ function App() {
           <div className="rounded-[25%] border border-[#FAFAFB] bg-white p-5 shadow-[0px_2px_12px_0px_hsla(0,0%,0%,0.03)] lg:p-9">
             <img
               alt={"React logo"}
-              src={ReactSvg}
-              className="h-14 w-14"
-              width={56}
-              height={56}
+              src="/react.svg"
+              className="h-20 w-20"
+              width={80}
+              height={80}
             />
           </div>
         </div>
@@ -94,7 +92,7 @@ function App() {
           <div className="rounded-[25%] border border-[#FAFAFB] bg-white p-5 shadow-[0px_2px_12px_0px_hsla(0,0%,0%,0.03)] lg:p-9">
             <img
               alt={"Appwrite logo"}
-              src={AppwriteSvg}
+              src="/appwrite.svg"
               className="h-14 w-14"
               width={56}
               height={56}
@@ -145,12 +143,14 @@ function App() {
           ) : null}
         </p>
 
-        <button
-          onClick={sendPing}
-          className={`cursor-pointer rounded-md bg-[#FD366E] px-2.5 py-1.5 ${status === "loading" ? "hidden" : "visible"}`}
-        >
-          <span className="text-white">Send a ping</span>
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={sendPing}
+            className={`cursor-pointer rounded-md bg-[#FD366E] px-2.5 py-1.5 ${status === "loading" ? "hidden" : "visible"}`}
+          >
+            <span className="text-white">Send a ping</span>
+          </button>
+        </div>
       </section>
 
       <div className="grid grid-rows-3 gap-7 lg:grid-cols-3 lg:grid-rows-none">
